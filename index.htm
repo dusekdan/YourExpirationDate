@@ -95,10 +95,14 @@
             for (let i = 0; i < genderValues.length; i++) {
                 let item = getDDItem(genderValues[i]);
                 item.addEventListener("click", () => {
+                    let ls = window.localStorage;
                     let dd = document.getElementById("dd-gender");
                     dd.innerText = genderValues[i];
-                    // TODO: Add call to visualize() and update localStorage().
                     updateLocalStorage("dd-gender", genderValues[i]);
+                    visualize(
+                        ls.getItem("dd-gender"), ls.getItem("dd-year"), 
+                        ls.getItem("dd-month"), ls.getItem("dd-day")
+                    );
                 });
                 genderParent.appendChild(item);
             }
@@ -108,10 +112,14 @@
             for (let i = 0; i < dayValues.length; i++) {
                 let item = getDDItem(dayValues[i]);
                 item.addEventListener("click", () => {
+                    let ls = window.localStorage;
                     let dd = document.getElementById("dd-day");
                     dd.innerText = dayValues[i];
-                    // TODO: Add call to visualize() and update localStorage().
                     updateLocalStorage("dd-day", dayValues[i]);
+                    visualize(
+                        ls.getItem("dd-gender"), ls.getItem("dd-year"), 
+                        ls.getItem("dd-month"), ls.getItem("dd-day")
+                    );
                 });
                 dayParent.appendChild(item);
             }
@@ -121,10 +129,14 @@
             for (let i = 0; i < monthValues.length; i++) {
                 let item = getDDItem(monthValues[i]);
                 item.addEventListener("click", () => {
+                    let ls = window.localStorage;
                     let dd = document.getElementById("dd-month");
                     dd.innerText = monthValues[i];
-                    // TODO: Add call to visualize() and update localStorage().
                     updateLocalStorage("dd-month", monthValues[i]);
+                    visualize(
+                        ls.getItem("dd-gender"), ls.getItem("dd-year"), 
+                        ls.getItem("dd-month"), ls.getItem("dd-day")
+                    );
                 });
                 monthParent.appendChild(item);
             }
@@ -136,10 +148,14 @@
             for (let i = year; i >= year - allowedMaxAge; i--) {
                 let item = getDDItem(i);
                 item.addEventListener("click", () => {
+                    let ls = window.localStorage;
                     let dd = document.getElementById("dd-year");
                     dd.innerText = i;
-                    // TODO: Add call to visualize() and update localStorage().
                     updateLocalStorage("dd-year", i);
+                    visualize(
+                        ls.getItem("dd-gender"), ls.getItem("dd-year"), 
+                        ls.getItem("dd-month"), ls.getItem("dd-day")
+                    );
                 });
                 parent.appendChild(item);
             }
