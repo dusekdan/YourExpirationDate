@@ -174,7 +174,6 @@
             }
 
             // Initialize and hook callbacks on item selection for "gender" dropdown.
-            //let gDDO = getSharedDDO();
             var genderDropDown = document.getElementById("dd-gender");
             var gddi = M.Dropdown.init(genderDropDown, getSharedDDO());
 
@@ -187,12 +186,6 @@
             var yearDropDown = document.getElementById("dd-year");
             var yddi = M.Dropdown.init(yearDropDown, getSharedDDO());
 
-        });
-
-        // Initialize dynamic materialize css elements
-        document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.dropdown-trigger');
-        var instances = M.Dropdown.init(elems, {'coverTrigger': false, 'constrainWidth': false, 'closeOnClick': true});
         });
         </script>
     </body>
