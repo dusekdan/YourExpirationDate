@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection">
         <link type="text/css" rel="stylesheet" href="css/custom-styles.css">
-        <!--<script src="js/expiration-date.js" type="text/javascript"></script>-->
+        <script src="js/expiration-date.js" type="text/javascript"></script>
         <script src="js/localstorage.js" type="text/javascript"></script>
         <script src="js/helpers.js" type="text/javascript"></script>
         <title>Your Life Has an Expiration Date</title>
@@ -160,7 +160,7 @@
                 parent.appendChild(item);
             }
 
-            // If the user previously visited and used the page, retrieve their values.
+            // Create localStorage structure for the first time user.
             if (!retrieveUsersLastSelection()) {
                 
                 visualize("male", "01", "Jan", "1994");
@@ -171,6 +171,12 @@
                 ls.setItem("dd-day", "01");
                 ls.setItem("dd-month", "Jan");
                 ls.setItem("dd-year", "1994");
+            } else {
+                let ls = window.localStorage;
+                visualize(
+                        ls.getItem("dd-gender"), ls.getItem("dd-year"), 
+                        ls.getItem("dd-month"), ls.getItem("dd-day")
+                    );
             }
 
             // Initialize and hook callbacks on item selection for "gender" dropdown.
