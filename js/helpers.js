@@ -56,3 +56,55 @@ const retrieveUsersLastSelection = () => {
 
     return false;
 }
+
+const convertMonth = (month) => {
+    switch (month.toString().toLowerCase()) {
+        case ("Jan").toLowerCase():
+            return 1;
+        break;
+        case ("Feb").toLowerCase():
+            return 2;
+        break;
+        case ("Mar").toLowerCase():
+            return 3;
+        break;
+        case ("Apr").toLowerCase():
+            return 4;
+        break;
+        case ("May").toLowerCase():
+            return 5;
+        break;
+        case ("Jun").toLowerCase():
+            return 6;
+        break;
+        case ("Jul").toLowerCase():
+            return 7;
+        break;
+        case ("Aug").toLowerCase():
+            return 8;
+        break;
+        case ("Sep").toLowerCase():
+            return 9;
+        break;
+        case ("Oct").toLowerCase():
+            return 10;
+        break;
+        case ("Nov").toLowerCase():
+            return 11;
+        break;
+        case ("Dec").toLowerCase():
+            return 12;
+        break;
+
+    }
+}
+
+
+const convertGender = (gender) => {
+    if (gender.toLowerCase() === "male") {
+        return 0;
+    }
+    else
+        return 1;
+}
+

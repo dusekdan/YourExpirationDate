@@ -1,38 +1,56 @@
 .info-selector-text, select#gender-selector {
     vertical-align: top;
 }
-.grid {
+.visualize-grid {
 
-    margin: 0 auto;
+    /*
     width: 80vw;
     max-width: 60vh;
     height: 80vw;
     max-height: 60vh;
-    font-size: 1rem;
+   
+    */
+    font-size: 0.5rem;
+    margin: 0 auto;
 
 }
 
-.row {
+.visualize-row {
     display: flex;
 }
 
-.box {
-    background: yellowgreen;
-    margin: 5px;
+.visualize-box {
+    background: rgba(76, 175, 79, 1);
+    margin: 0.5px;
     color: darkolivegreen;
     font-weight: bold;
     flex: 1 0 auto;
     position: relative; 
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
 }
 
-.box:after {
+.visualize-box-passed {
+    background: rgb(0, 0, 0);
+}
+
+@keyframes color_passed {
+    0% {background: rgba(76, 175, 79, 1);}
+    70% {
+        background: rgb(27, 94, 32);
+    }
+    100% {background: rgb(0, 0, 0);}
+
+}
+
+.visualize-box:after {
     content: "";
     float: left;
     display: block;
     padding-top: 100%;
 }
 
-.box .inner {
+.visualize-box .inner {
     position: absolute;
     left: 0;
     right: 0;
