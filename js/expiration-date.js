@@ -60,9 +60,7 @@ let visualize = function (g, y, m, d) {
     }
 
     age_in_weeks = weeksBetween(birth_date, curr_date);
-    new_announcenment = document.createTextNode(age_in_weeks.toString() + " weeks are gone..");
 
-    visualization_div.appendChild(new_announcenment);
     visualization_div.appendChild(new_visualize_grid);
 
     var row = 0;
@@ -85,6 +83,29 @@ let visualize = function (g, y, m, d) {
 
         row++;
         
+    }
+
+    
+    var pending_int = setInterval(pending, 400);
+    var toggle_pending = false;
+    function pending() {
+
+        if (toggle_pending) {
+            curr_element = document.getElementById(age_in_weeks.toString());
+                if (curr_element !== null) {
+                    curr_element.classList.add("visualize-box-passed");
+                }
+            toggle_pending = false;
+        }
+
+        else {
+            curr_element = document.getElementById(age_in_weeks.toString());
+                if (curr_element !== null) {
+                    curr_element.classList.remove("visualize-box-passed");
+                }
+            toggle_pending = true;
+        }
+            
     }
 
 };
