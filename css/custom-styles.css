@@ -32,44 +32,9 @@
     background: rgb(0, 0, 0);
 }
 
-@-moz-keyframes color_passed {
-    0% {background: rgba(76, 175, 79, 1);}
-    70% {
-        background: rgb(27, 94, 32);
-    }
-    100% {background: rgb(0, 0, 0);}
-}
-
-@-webkit-keyframes color_passed {
-    0% {background: rgba(76, 175, 79, 1);}
-    70% {
-        background: rgb(27, 94, 32);
-    }
-    100% {background: rgb(0, 0, 0);}
-}
-
-@-ms-keyframes color_passed {
-    0% {background: rgba(76, 175, 79, 1);}
-    70% {
-        background: rgb(27, 94, 32);
-    }
-    100% {background: rgb(0, 0, 0);}
-}
-
-@-o-keyframes color_passed {
-    0% {background: rgba(76, 175, 79, 1);}
-    70% {
-        background: rgb(27, 94, 32);
-    }
-    100% {background: rgb(0, 0, 0);}
-}
-
 @keyframes color_passed {
-    0% {background: rgba(76, 175, 79, 1);}
-    70% {
-        background: rgb(27, 94, 32);
-    }
-    100% {background: rgb(0, 0, 0);}
+    from {background: rgba(76, 175, 79, 1);}
+    to {background: rgb(0, 0, 0);}
 }
 
 .visualize-box:after {

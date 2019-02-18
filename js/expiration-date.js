@@ -4,7 +4,7 @@ let visualize = function (g, y, m, d) {
     var month = convertMonth(m);
     var day = parseInt(d);
 
-    var birth_date = new Date(year, month, day);
+    var birth_date = new Date(year, month-1, day);
     var curr_date = new Date();
 
     var average_lifespan = 70;
@@ -65,29 +65,27 @@ let visualize = function (g, y, m, d) {
     visualization_div.appendChild(new_announcenment);
     visualization_div.appendChild(new_visualize_grid);
 
-    for (var curr_id = 1; curr_id <= age_in_weeks; curr_id++) {
-        curr_element = document.getElementById(curr_id.toString());
+    var row = 0;
+    var visualize_transition = setInterval(visualization_passing, 30);
 
-        if (curr_element !== null) {
-            curr_element.setAttribute("style", "-webkit-animation: color_passed 2s ease-in-out;\
-            -moz-animation: color_passed 2s ease-in-out;\
-            -ms-animation: color_passed 2s ease-in-out;\
-            -o-animation: color_passed 2s ease-in-out;\
-            animation: color_passed 2s ease-in-out;\
-            ");
-        }
-        
-    }
+    function visualization_passing() {
 
-    setTimeout(() => {
-        for (var curr_id = 1; curr_id <= age_in_weeks; curr_id++) {
-            curr_element = document.getElementById(curr_id.toString());
+        for (element_id = 1; element_id <= 104; element_id++) {
+            var id = (row*104) + element_id 
+            curr_element = document.getElementById(id.toString());
             if (curr_element !== null) {
                 curr_element.classList.add("visualize-box-passed");
             }
-        }
-    }, 1000);
 
+            if (id >= age_in_weeks) {
+                clearInterval(visualize_transition);
+                break;
+            }
+        }
+
+        row++;
+        
+    }
 
 };
 
