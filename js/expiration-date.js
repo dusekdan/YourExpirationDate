@@ -69,7 +69,12 @@ let visualize = function (g, y, m, d) {
 
     for (var curr_id = 1; curr_id <= age_in_weeks; curr_id++) {
         curr_element = document.getElementById(curr_id);
-        curr_element.setAttribute("style", "animation-name:color_passed;");
+        curr_element.setAttribute("style", "-webkit-animation: color_passed 2s ease-in-out;\
+        -moz-animation: color_passed 2s ease-in-out;\
+        -ms-animation: color_passed 2s ease-in-out;\
+        -o-animation: color_passed 2s ease-in-out;\
+        animation: color_passed 2s ease-in-out;\
+        ");
     }
 
     setTimeout(() => {

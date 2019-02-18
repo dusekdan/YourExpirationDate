@@ -26,12 +26,42 @@
     font-weight: bold;
     flex: 1 0 auto;
     position: relative; 
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
 }
 
 .visualize-box-passed {
     background: rgb(0, 0, 0);
+}
+
+@-moz-keyframes color_passed {
+    0% {background: rgba(76, 175, 79, 1);}
+    70% {
+        background: rgb(27, 94, 32);
+    }
+    100% {background: rgb(0, 0, 0);}
+}
+
+@-webkit-keyframes color_passed {
+    0% {background: rgba(76, 175, 79, 1);}
+    70% {
+        background: rgb(27, 94, 32);
+    }
+    100% {background: rgb(0, 0, 0);}
+}
+
+@-ms-keyframes color_passed {
+    0% {background: rgba(76, 175, 79, 1);}
+    70% {
+        background: rgb(27, 94, 32);
+    }
+    100% {background: rgb(0, 0, 0);}
+}
+
+@-o-keyframes color_passed {
+    0% {background: rgba(76, 175, 79, 1);}
+    70% {
+        background: rgb(27, 94, 32);
+    }
+    100% {background: rgb(0, 0, 0);}
 }
 
 @keyframes color_passed {
@@ -40,7 +70,6 @@
         background: rgb(27, 94, 32);
     }
     100% {background: rgb(0, 0, 0);}
-
 }
 
 .visualize-box:after {
