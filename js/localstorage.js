@@ -1,0 +1,3 @@
+const checkStorageCreated = () => {
+    return false;
+}
