@@ -4,8 +4,6 @@ let visualize = function (g, y, m, d) {
     var month = convertMonth(m);
     var day = parseInt(d);
 
-    //male, null, null, null
-
     var birth_date = new Date(year, month, day);
     var curr_date = new Date();
 
@@ -34,7 +32,7 @@ let visualize = function (g, y, m, d) {
     var total_columns = 104; // two years
     var total_rows = average_lifespan/2;
 
-    id = 1;
+    var id = 1;
 
     //add cards to div element
     for (var row = 0; row < total_rows; row++){
@@ -45,7 +43,7 @@ let visualize = function (g, y, m, d) {
         for (var column = 0; column < total_columns; column++){
             var new_item = document.createElement("div");
             new_item.classList.add("visualize-box");
-            new_item.setAttribute("id", id);
+            new_item.setAttribute("id", id.toString());
             id++;
 
             var new_inner_item = document.createElement("div");
@@ -68,19 +66,25 @@ let visualize = function (g, y, m, d) {
     visualization_div.appendChild(new_visualize_grid);
 
     for (var curr_id = 1; curr_id <= age_in_weeks; curr_id++) {
-        curr_element = document.getElementById(curr_id);
-        curr_element.setAttribute("style", "-webkit-animation: color_passed 2s ease-in-out;\
-        -moz-animation: color_passed 2s ease-in-out;\
-        -ms-animation: color_passed 2s ease-in-out;\
-        -o-animation: color_passed 2s ease-in-out;\
-        animation: color_passed 2s ease-in-out;\
-        ");
+        curr_element = document.getElementById(curr_id.toString());
+
+        if (curr_element !== null) {
+            curr_element.setAttribute("style", "-webkit-animation: color_passed 2s ease-in-out;\
+            -moz-animation: color_passed 2s ease-in-out;\
+            -ms-animation: color_passed 2s ease-in-out;\
+            -o-animation: color_passed 2s ease-in-out;\
+            animation: color_passed 2s ease-in-out;\
+            ");
+        }
+        
     }
 
     setTimeout(() => {
         for (var curr_id = 1; curr_id <= age_in_weeks; curr_id++) {
-            curr_element = document.getElementById(curr_id);
-            curr_element.classList.add("visualize-box-passed");
+            curr_element = document.getElementById(curr_id.toString());
+            if (curr_element !== null) {
+                curr_element.classList.add("visualize-box-passed");
+            }
         }
     }, 1000);
 
@@ -91,7 +95,5 @@ let visualize = function (g, y, m, d) {
 function weeksBetween(d1, d2) {
     return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
 }
-
-document.getElementById("visualize-button").addEventListener("click") = visualize;
 
 
