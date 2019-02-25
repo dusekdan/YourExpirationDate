@@ -35,6 +35,7 @@ let visualize = function (g, y, m, d) {
     var id = 1;
 
     //add cards to div element
+    
     for (var row = 0; row < total_rows; row++){
 
         var new_row = document.createElement("div");
@@ -49,9 +50,6 @@ let visualize = function (g, y, m, d) {
             var new_inner_item = document.createElement("div");
             new_inner_item.classList.add("inner");
 
-            //var text_elem = document.createTextNode(((row*104)+column).toString());
-
-            //new_inner_item.appendChild(text_elem);
             new_item.appendChild(new_inner_item);
             new_row.appendChild(new_item);
         }
@@ -59,7 +57,20 @@ let visualize = function (g, y, m, d) {
         new_visualize_grid.appendChild(new_row);
     }
 
+    // Visualize how many weeks the person has lived.
     age_in_weeks = weeksBetween(birth_date, curr_date);
+    let weeks_til_death = (total_columns * total_rows) - age_in_weeks;
+
+    // Handle cases when one outlives themselves.
+    if (weeks_til_death <= 0) {
+        weeks_til_death = 0;
+        document.getElementById('weeks-til-death').setAttribute('style', 'color: crimson;');
+    } else {
+        document.getElementById('weeks-til-death').setAttribute('style', 'color: rgba(76, 175, 79, 0.9);');
+    }
+
+    document.getElementById('weeks-wasted').innerText = age_in_weeks;
+    document.getElementById('weeks-til-death').innerText = weeks_til_death;
 
     visualization_div.appendChild(new_visualize_grid);
 
@@ -85,28 +96,11 @@ let visualize = function (g, y, m, d) {
         
     }
 
-    
-    var pending_int = setInterval(pending, 400);
-    var toggle_pending = false;
-    function pending() {
-
-        if (toggle_pending) {
-            curr_element = document.getElementById(age_in_weeks.toString());
-                if (curr_element !== null) {
-                    curr_element.classList.add("visualize-box-passed");
-                }
-            toggle_pending = false;
-        }
-
-        else {
-            curr_element = document.getElementById(age_in_weeks.toString());
-                if (curr_element !== null) {
-                    curr_element.classList.remove("visualize-box-passed");
-                }
-            toggle_pending = true;
-        }
-            
+    let pending_box = document.getElementById(age_in_weeks.toString());
+    if (pending_box) {
+        pending_box.classList.add('pending');
     }
+    
 
 };
 
