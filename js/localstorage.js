@@ -1,3 +1,0 @@
-const checkStorageCreated = () => {
-    return false;
-}
